@@ -1,0 +1,17 @@
+--- kismon/files/kismon.desktop	2012-03-27 19:32:53.249737970 +0200
++++ kismon-fab/files/kismon.desktop	2012-04-13 08:48:36.370215348 +0200
+@@ -1,12 +1,10 @@
+-
+ [Desktop Entry]
+ Version=1.0
+ Encoding=UTF-8
+ Name=Kismon
+ Comment=PyGTK Kismet Client
+ Exec=kismon
+-Icon=network-wireless.png
++Icon=network-wireless
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Network;
+-Name=Kismon
++Categories=GNOME;GTK;Network;
