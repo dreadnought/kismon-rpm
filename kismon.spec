@@ -7,7 +7,6 @@ Group:          Applications/Internet
 License:        BSD
 URL:            http://www.salecker.org/software/kismon/en
 Source0:        http://files.salecker.org/%{name}/%{name}-%{version}.tar.gz
-Patch0:         kismon-desktop.patch
 BuildArch:      noarch
 
 BuildRequires:  python2-devel
@@ -25,7 +24,6 @@ networks.
 
 %prep
 %setup -q
-%patch0 -p1 -b .desktop
 for lib in %{name}/*.py %{name}/windows/*.py; do
     sed '/\/usr\/bin\/env/d' $lib > $lib.new &&
     touch -r $lib $lib.new &&
@@ -51,6 +49,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %changelog
 * Sun Jun 17 2012 Fabian Affolter <mail@fabian-affolter.ch> - 0.6-1
 - COPYING added
+- Patch0 is now upstream
 - Update to new upstream version 0.6
 
 * Mon May 28 2012 Fabian Affolter <mail@fabian-affolter.ch> - 0.5-2
