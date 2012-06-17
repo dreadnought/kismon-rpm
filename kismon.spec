@@ -1,6 +1,6 @@
 Name:           kismon
-Version:        0.5
-Release:        2%{?dist}
+Version:        0.6
+Release:        1%{?dist}
 Summary:        A simple GUI client for kismet
 
 Group:          Applications/Internet
@@ -42,13 +42,17 @@ python setup.py install -O1 --skip-build --root=%{buildroot}
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%doc README NEWS 
+%doc COPYING README NEWS 
 %{_bindir}/%{name}
 %{python_sitelib}/%{name}/
 %{python_sitelib}/%{name}*.egg-info
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Sun Jun 17 2012 Fabian Affolter <mail@fabian-affolter.ch> - 0.6-1
+- COPYING added
+- Update to new upstream version 0.6
+
 * Mon May 28 2012 Fabian Affolter <mail@fabian-affolter.ch> - 0.5-2
 - License fixed
 - Old stuff removed
