@@ -1,6 +1,6 @@
 Name:           kismon
 Version:        0.6
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A simple GUI client for kismet
 
 Group:          Applications/Internet
@@ -47,6 +47,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Thu Jul 19 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
+
 * Sun Jun 17 2012 Fabian Affolter <mail@fabian-affolter.ch> - 0.6-1
 - COPYING added
 - Patch0 is now upstream
