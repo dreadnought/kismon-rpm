@@ -1,6 +1,6 @@
 Name:           kismon
 Version:        0.6
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        A simple GUI client for kismet
 
 Group:          Applications/Internet
@@ -46,6 +46,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
+
 * Wed Oct 07 2012 Fabian Affolter <mail@fabian-affolter.ch> - 0.6-4
 - Drop pyclutter because of its retirement in Fedora
 
