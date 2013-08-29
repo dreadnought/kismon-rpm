@@ -1,9 +1,8 @@
 Name:           kismon
 Version:        0.6
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        A simple GUI client for kismet
 
-Group:          Applications/Internet
 License:        BSD
 URL:            http://www.salecker.org/software/kismon/en
 Source0:        http://files.salecker.org/%{name}/%{name}-%{version}.tar.gz
@@ -13,7 +12,7 @@ BuildRequires:  python2-devel
 BuildRequires:  desktop-file-utils
 
 Requires:       kismet
-Requires:       python-osmgpsmap
+Requires:       osm-gps-map
 Requires:       pygtk2
 Requires:       python-simplejson
     
@@ -46,6 +45,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Thu Aug 29 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.6-7
+- osm-gps-map is the replacement for python-osmgpsmap
+
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
