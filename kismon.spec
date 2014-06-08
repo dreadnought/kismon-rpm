@@ -1,6 +1,6 @@
 Name:           kismon
 Version:        0.6
-Release:        7%{?dist}
+Release:        8%{?dist}
 Summary:        A simple GUI client for kismet
 
 License:        BSD
@@ -45,6 +45,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Sun Jun 08 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6-8
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
 * Thu Aug 29 2013 Fabian Affolter <mail@fabian-affolter.ch> - 0.6-7
 - osm-gps-map is the replacement for python-osmgpsmap
 
