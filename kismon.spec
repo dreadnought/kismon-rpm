@@ -1,6 +1,6 @@
 Name:           kismon
-Version:        0.6
-Release:        9%{?dist}
+Version:        0.7
+Release:        1%{?dist}
 Summary:        A simple GUI client for kismet
 
 License:        BSD
@@ -8,13 +8,14 @@ URL:            http://www.salecker.org/software/kismon/en
 Source0:        http://files.salecker.org/%{name}/%{name}-%{version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  python2-devel
+BuildRequires:  python3-devel
 BuildRequires:  desktop-file-utils
 
 Requires:       kismet
 Requires:       osm-gps-map
-Requires:       pygtk2
-Requires:       python-simplejson
+Requires:       pygobject3
+Requires:       python3-cairo
+Requires:       python3-simplejson
     
 %description
 Kismon is a PyGTK Kismet Newcore client that creates a live map of the
@@ -31,20 +32,23 @@ chmod -x NEWS files/kismon.desktop
 rm %{name}/windows/main.py
 
 %build
-python setup.py build
+%py3_build
 
 %install
-python setup.py install -O1 --skip-build --root=%{buildroot}
+%py3_install
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
 %doc COPYING README NEWS 
 %{_bindir}/%{name}
-%{python_sitelib}/%{name}/
-%{python_sitelib}/%{name}*.egg-info
+%{python3_sitelib}/%{name}/
+%{python3_sitelib}/%{name}*.egg-info
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Fri Nov 27 2015 Fabian Affolter <mail@fabian-affolter.ch> - 0.7-1
+- Update to new upstream version 0.7
+
 * Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6-9
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
