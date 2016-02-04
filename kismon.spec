@@ -1,6 +1,6 @@
 Name:           kismon
 Version:        0.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A simple GUI client for kismet
 
 License:        BSD
@@ -46,6 +46,9 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.7-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Fri Nov 27 2015 Fabian Affolter <mail@fabian-affolter.ch> - 0.7-1
 - Update to new upstream version 0.7
 
