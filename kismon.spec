@@ -1,25 +1,31 @@
 Name:           kismon
-Version:        0.7
-Release:        2%{?dist}
+Version:        0.8.1
+Release:        1%{?dist}
 Summary:        A simple GUI client for kismet
 
 License:        BSD
-URL:            http://www.salecker.org/software/kismon/en
-Source0:        http://files.salecker.org/%{name}/%{name}-%{version}.tar.gz
+URL:            https://www.salecker.org/software/kismon.html
+Source0:        https://files.salecker.org/%{name}/%{name}-%{version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  python3-devel
 BuildRequires:  desktop-file-utils
 
-Requires:       kismet
-Requires:       osm-gps-map
+Requires:       osm-gps-map-gobject
 Requires:       pygobject3
 Requires:       python3-cairo
 Requires:       python3-simplejson
-    
+
+Recommends:     kismet
+
 %description
-Kismon is a PyGTK Kismet Newcore client that creates a live map of the
-networks. 
+Kismon is GUI client for kismet (wireless scanner/sniffer/monitor) with
+several features:
+* a live map of the networks
+* file import: netxml (kismet), csv (old kismet version), json (kismon)
+* file export: kmz (Google Earth) and all import formats
+* signal graph for each network
+* it can connect to multiple kismet servers simultaneously
 
 %prep
 %setup -q
@@ -28,8 +34,7 @@ for lib in %{name}/*.py %{name}/windows/*.py; do
     touch -r $lib $lib.new &&
     mv $lib.new $lib
 done
-chmod -x NEWS files/kismon.desktop
-rm %{name}/windows/main.py
+chmod -x files/kismon.desktop
 
 %build
 %py3_build
@@ -39,13 +44,18 @@ rm %{name}/windows/main.py
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%doc COPYING README NEWS 
+%doc COPYING README NEWS
 %{_bindir}/%{name}
 %{python3_sitelib}/%{name}/
 %{python3_sitelib}/%{name}*.egg-info
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Sat Jul 02 2016 Patrick Salecker <mail@salecker.org> - 0.8.1-1
+- Update to new upstream version 0.8.1
+- osm-gps-map dependency fixed
+- Website URL and description updated
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.7-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
